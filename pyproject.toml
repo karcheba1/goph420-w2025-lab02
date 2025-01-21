@@ -11,7 +11,8 @@ authors = [
   { name = "Colin Maloney", email = "colin.maloney@ucalgary.ca" },
   { name = "Sydney Pasloski", email = "sydney.pasloski@ucalgary.ca" },
   { name = "Ayooluwa Popoola", email = "ayooluwa.popoola@ucalgary.ca"},
-  { name = "Avneet Kaur", email = "avneet.kaur3@ucalgary.ca"}
+  { name = "Avneet Kaur", email = "avneet.kaur3@ucalgary.ca"},
+  { name = "Zoe Mitchell", email = "zoe.mitchell@ucalgary.ca"},
 ]
 description = "Lab #2 Finite Element Method for Heat Conduction"
 readme = "README.md"
