@@ -14,6 +14,7 @@ authors = [
   { name = "Avneet Kaur", email = "avneet.kaur3@ucalgary.ca"},
   { name = "Joan M Flores Lopez", email="joamanuek@gmail.com"},
   { name = "Zoe Mitchell", email = "zoe.mitchell@ucalgary.ca"},
+  { name = "Declan Fitzpatrick", email = "declan.fitzpatrick@ucalgary.ca"},
 
 ]
 description = "Lab #2 Finite Element Method for Heat Conduction"
