@@ -8,6 +8,7 @@ version = "0.0.1"
 authors = [
   { name = "Brandon Karchewski", email = "brandon.karchewski@ucalgary.ca" }, 
   { name = "Colin Maloney", email = "colin.maloney@ucalgary.ca" },
+  { name = "Ayooluwa Popoola", email = "ayooluwa.popoola@ucalgary.ca"}
 ]
 description = "Lab #2 Finite Element Method for Heat Conduction"
 readme = "README.md"
