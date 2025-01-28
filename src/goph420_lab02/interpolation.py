@@ -35,6 +35,7 @@ def interp_lagrange(x, xd, fd):
         return l_frac
 
     def polynomial_value(x, xd, fd):
+        """Determine polynomial value"""
         f = 0
         for i in range(len(xd)):
             f += fd[i]*l_fraction(x, xd)
