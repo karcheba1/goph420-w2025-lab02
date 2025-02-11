@@ -58,4 +58,3 @@ def interp_grad_2ndorder(x, xd, fd):
     
     
     return derivative 
-

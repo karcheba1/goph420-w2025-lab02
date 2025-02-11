@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 from goph420_lab02.interpolation import (
-    interp_lagrange,
-=======
-from src.goph420_lab02.interpolation import (
     interp_lagrange, 
     interp_grad_2ndorder,
->>>>>>> 411e9debbec3fc8f87739d37f41314cacce4dbaf
 )
 import matplotlib.pyplot as plt
 import numpy as np
@@ -21,9 +16,10 @@ def main():
 
     # plot the results
 
-    xd = np.array([-5, 5])
-    xd_2 = np.array([-5, 0, 5])
-    xd_3 = np.array([-5, -2, 2, 5])
+
+    xd = np.array([-5,5])
+    xd_2 = np.array([-5,0,5])
+    xd_3 = np.array([-5,-2,2,5])
 
     x = np.linspace(-10, 10, 100)
 
@@ -37,20 +33,20 @@ def main():
     y_cubic_exp = 3 * x**3 + 2 * x**2 + 2 * x + 3
 
     L_linear = interp_lagrange(x, xd, y_linear_data)
-    f_linear = y_linear(x)
+    f_linear = y_linear[x]
 
     L_quad = interp_lagrange(x, xd_2, y_quad_data)
-    f_quad = y_quad(x)
 
-    L_cubic = interp_lagrange(x, xd_3, y_cubic_data)
-    f_cubic = y_cubic(x)
+
+    L_cubic = interp_lagrange(x ,xd_3, y_cubic_data)
+
 
     plt.plot(x, y_linear_exp, "-b", label="Linear")
     plt.plot(x, y_quad_exp, "--b", label="Quadratic")
     plt.plot(x, y_cubic_exp, "-.b", label="Cubic")
 
-    plt.plot(x, f_linear, label="Linear Function")
-    plt.plot(x, L_linear, label="Linear Interpolation")
+    plt.plot(x, f_linear_exp, label="Linear Function")
+    plt.plot(x, L_linear_exp, label="Linear Interpolation")
     plt.scatter(xd, y_linear_data)
 
     plt.plot(x, f_quad, label="Quadratic Function")
@@ -63,15 +59,15 @@ def main():
 
     plt.show()
 
+def test_2nd_order_grad(): 
+    """Test the 2nd order gradient function""" 
+    x = 3.0 
+    xd = [0, 2.3, 4.9] 
+    fd = [22.8, 22.8, 22.8] 
+    grad = interp_grad_2ndorder(x, xd, fd)
+    print(grad)
+    assert np.abs(grad - 0) < 1e-8, "Gradient is not correct"
 
 if __name__ == "__main__":
     main()
-
-
-def test_2nd_order_grad(x, wd, fd): 
-    """Test the 2nd order gradient function""" 
-    x = 1.5 
-    xd = [1, 2, 3] 
-    fd = [2, 3, 5] 
-    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
-    print("Test passed")
+    test_2nd_order_grad()
