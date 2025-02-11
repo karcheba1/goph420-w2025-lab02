@@ -59,10 +59,3 @@ def interp_grad_2ndorder(x, xd, fd):
     
     return derivative 
 
-def test_2nd_order_grad(x, wd, fd): 
-    """Test the 2nd order gradient function""" 
-    x = 1.5 
-    xd = [1, 2, 3] 
-    fd = [2, 3, 5] 
-    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
-    print("Test passed")
