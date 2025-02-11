@@ -67,6 +67,6 @@ def test_2nd_order_grad():
     grad = interp_grad_2ndorder(x, xd, fd) 
     assert grad == 0.0, "Gradient is not correct" 
 
-    if __name__ == "__main__":
+if __name__ == "__main__":
     main()
     test_2nd_order_grad()
