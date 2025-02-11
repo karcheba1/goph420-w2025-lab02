@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 from goph420_lab02.interpolation import (
-    interp_lagrange,
-=======
-from src.goph420_lab02.interpolation import (
     interp_lagrange, 
     interp_grad_2ndorder,
->>>>>>> 411e9debbec3fc8f87739d37f41314cacce4dbaf
 )
 import matplotlib.pyplot as plt
 import numpy as np
@@ -37,7 +32,7 @@ def main():
     y_cubic_exp = 3 * x**3 + 2 * x**2 + 2 * x + 3
 
     L_linear = interp_lagrange(x, xd, y_linear_data)
-    f_linear = y_linear(x)
+    f_linear = y_linear[x]
 
     L_quad = interp_lagrange(x, xd_2, y_quad_data)
     f_quad = y_quad(x)
