@@ -59,15 +59,14 @@ def main():
 
     plt.show()
 
-
-if __name__ == "__main__":
-    main()
-
-
-def test_2nd_order_grad(x, wd, fd): 
+def test_2nd_order_grad(): 
     """Test the 2nd order gradient function""" 
     x = 3.0 
     xd = [0, 2.3, 4.9] 
     fd = [22.8, 22.8, 22.8] 
     grad = interp_grad_2ndorder(x, xd, fd) 
-    assert grad == 0.0, "Gradient is not correct"
+    assert grad == 0.0, "Gradient is not correct" 
+
+if __name__ == "__main__":
+    main()
+    test_2nd_order_grad()
