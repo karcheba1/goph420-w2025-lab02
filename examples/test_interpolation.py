@@ -1,4 +1,4 @@
-from src.goph420_lab02.interpolation import (
+from goph420_lab02.interpolation import (
     interp_lagrange,
 )
 import matplotlib.pyplot as plt
