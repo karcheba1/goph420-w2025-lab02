@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from goph420_lab02.interpolation import (
+=======
+from src.goph420_lab02.interpolation import (
+>>>>>>> ad7192a3dce4badce4f4505eb8e83c41c8ac9040
     interp_lagrange, 
     interp_grad_2ndorder,
 )
@@ -16,9 +20,10 @@ def main():
 
     # plot the results
 
-    xd = np.array([-5, 5])
-    xd_2 = np.array([-5, 0, 5])
-    xd_3 = np.array([-5, -2, 2, 5])
+
+    xd = np.array([-5,5])
+    xd_2 = np.array([-5,0,5])
+    xd_3 = np.array([-5,-2,2,5])
 
     x = np.linspace(-10, 10, 100)
 
@@ -32,20 +37,24 @@ def main():
     y_cubic_exp = 3 * x**3 + 2 * x**2 + 2 * x + 3
 
     L_linear = interp_lagrange(x, xd, y_linear_data)
+<<<<<<< HEAD
     f_linear = y_linear[x]
+=======
+
+>>>>>>> ad7192a3dce4badce4f4505eb8e83c41c8ac9040
 
     L_quad = interp_lagrange(x, xd_2, y_quad_data)
-    f_quad = y_quad(x)
 
-    L_cubic = interp_lagrange(x, xd_3, y_cubic_data)
-    f_cubic = y_cubic(x)
+
+    L_cubic = interp_lagrange(x ,xd_3, y_cubic_data)
+
 
     plt.plot(x, y_linear_exp, "-b", label="Linear")
     plt.plot(x, y_quad_exp, "--b", label="Quadratic")
     plt.plot(x, y_cubic_exp, "-.b", label="Cubic")
 
-    plt.plot(x, f_linear, label="Linear Function")
-    plt.plot(x, L_linear, label="Linear Interpolation")
+    plt.plot(x, f_linear_exp, label="Linear Function")
+    plt.plot(x, L_linear_exp, label="Linear Interpolation")
     plt.scatter(xd, y_linear_data)
 
     plt.plot(x, f_quad, label="Quadratic Function")
@@ -65,8 +74,8 @@ if __name__ == "__main__":
 
 def test_2nd_order_grad(x, wd, fd): 
     """Test the 2nd order gradient function""" 
-    x = 1.5 
-    xd = [1, 2, 3] 
-    fd = [2, 3, 5] 
-    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
-    print("Test passed")
+    x = 3.0 
+    xd = [0, 2.3, 4.9] 
+    fd = [22.8, 22.8, 22.8] 
+    grad = interp_grad_2ndorder(x, xd, fd) 
+    assert grad == 0.0, "Gradient is not correct"
