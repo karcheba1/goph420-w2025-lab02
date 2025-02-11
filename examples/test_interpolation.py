@@ -1,6 +1,11 @@
+<<<<<<< HEAD
+from goph420_lab02.interpolation import (
+    interp_lagrange,
+=======
 from src.goph420_lab02.interpolation import (
     interp_lagrange, 
     interp_grad_2ndorder,
+>>>>>>> 411e9debbec3fc8f87739d37f41314cacce4dbaf
 )
 import matplotlib.pyplot as plt
 import numpy as np
