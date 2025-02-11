@@ -33,13 +33,13 @@ def main():
     y_cubic_exp = 3 * x**3 + 2 * x**2 + 2 * x + 3
 
     L_linear = interp_lagrange(x, xd, y_linear_data)
-    f_linear = y_linear[x]
+    f_linear = y_linear(x)
 
     L_quad = interp_lagrange(x, xd_2, y_quad_data)
-
+    f_quad = y_quad(x)
 
     L_cubic = interp_lagrange(x ,xd_3, y_cubic_data)
-
+    f_cubic = y_cubic(x)
 
     plt.plot(x, y_linear_exp, "-b", label="Linear")
     plt.plot(x, y_quad_exp, "--b", label="Quadratic")
