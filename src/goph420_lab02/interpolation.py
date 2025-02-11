@@ -43,20 +43,26 @@ def interp_lagrange(x, xd, fd):
 
     return polynomial_value(x, xd, fd) 
 
-def interp_grad(x, xd, fd): 
+def interp_grad_2ndorder(x, xd, fd): 
     """find the gradient of the interpolating polynomial""" 
     xd = np.asarray(xd, dtype=float) 
-    n = len(xd) - 1 
-    j = 0 
-    k = n 
 
-    L0_prime = (2*x - x1 - x2) / ((x0 - x1) * (x0 - x2))
-    L1_prime = (2*x - x0 - x2) / ((x1 - x0) * (x1 - x2))
-    L2_prime = (2*x - x0 - x1) / ((x2 - x0) * (x2 - x1))
+    L0_prime = (2*x - xd[1] - xd[2]) / ((xd[0] - xd[1]) * (xd[0] - xd[2]))
+    L1_prime = (2*x - xd[0] - xd[2]) / ((xd[1] - xd[0]) * (xd[1] - xd[2]))
+    L2_prime = (2*x - xd[0] - xd[1]) / ((xd[2] - xd[0]) * (x[2] - x[1]))
+    derivative = fd[0] * L0_prime + fd[1] * L1_prime + fd[2] * L2_prime
+
+
+
     
-    # Compute the derivative of the polynomial
-    derivative = y0 * L0_prime + y1 * L1_prime + y2 * L2_prime
     
     
-    
-    pass
+    return derivative 
+
+def test_2nd_order_grad(x, wd, fd): 
+    """Test the 2nd order gradient function""" 
+    x = 1.5 
+    xd = [1, 2, 3] 
+    fd = [2, 3, 5] 
+    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
+    print("Test passed")
