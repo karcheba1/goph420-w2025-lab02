@@ -5,6 +5,9 @@ from src.goph420_lab02.interpolation import (
 import matplotlib.pyplot as plt
 import numpy as np
 
+T = [22.8, 22.8, 22.8, 20.6, 13.9, 11.7, 11.1, 11.1, 11.1]
+z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
+
 
 def main():
     # generate some data from polynomials of different order
