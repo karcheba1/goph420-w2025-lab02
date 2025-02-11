@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 from goph420_lab02.interpolation import (
     interp_lagrange,
+=======
+from src.goph420_lab02.interpolation import (
+    interp_lagrange, 
+    interp_grad_2ndorder,
+>>>>>>> 411e9debbec3fc8f87739d37f41314cacce4dbaf
 )
 import matplotlib.pyplot as plt
 import numpy as np
+
+T = [22.8, 22.8, 22.8, 20.6, 13.9, 11.7, 11.1, 11.1, 11.1]
+z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 
 def main():
@@ -57,3 +66,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def test_2nd_order_grad(x, wd, fd): 
+    """Test the 2nd order gradient function""" 
+    x = 1.5 
+    xd = [1, 2, 3] 
+    fd = [2, 3, 5] 
+    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
+    print("Test passed")
