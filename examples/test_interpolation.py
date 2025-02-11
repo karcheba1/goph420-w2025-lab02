@@ -63,7 +63,7 @@ if __name__ == "__main__":
     main()
 
 
-def test_2nd_order_grad(x, wd, fd): 
+def test_2nd_order_grad(x, xd, fd): 
     """Test the 2nd order gradient function""" 
     x = 3.0 
     xd = [0, 2.3, 4.9] 
