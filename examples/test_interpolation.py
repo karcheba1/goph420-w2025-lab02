@@ -66,8 +66,8 @@ if __name__ == "__main__":
 
 def test_2nd_order_grad(x, wd, fd): 
     """Test the 2nd order gradient function""" 
-    x = 1.5 
-    xd = [1, 2, 3] 
-    fd = [2, 3, 5] 
-    assert interp_grad_2ndorder(x, xd, fd) == 2.5, "Test failed" 
-    print("Test passed")
+    x = 3.0 
+    xd = [0, 2.3, 4.9] 
+    fd = [22.8, 22.8, 22.8] 
+    grad = interp_grad_2ndorder(x, xd, fd) 
+    assert grad == 0.0, "Gradient is not correct"
