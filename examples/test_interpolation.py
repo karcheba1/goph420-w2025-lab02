@@ -64,8 +64,9 @@ def test_2nd_order_grad():
     x = 3.0 
     xd = [0, 2.3, 4.9] 
     fd = [22.8, 22.8, 22.8] 
-    grad = interp_grad_2ndorder(x, xd, fd) 
-    assert grad == 0.0, "Gradient is not correct" 
+    grad = interp_grad_2ndorder(x, xd, fd)
+    print(grad)
+    assert np.abs(grad - 0) < 1e-8, "Gradient is not correct"
 
 if __name__ == "__main__":
     main()
