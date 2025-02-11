@@ -50,7 +50,7 @@ def interp_grad_2ndorder(x, xd, fd):
 
     L0_prime = (2*x - xd[1] - xd[2]) / ((xd[0] - xd[1]) * (xd[0] - xd[2]))
     L1_prime = (2*x - xd[0] - xd[2]) / ((xd[1] - xd[0]) * (xd[1] - xd[2]))
-    L2_prime = (2*x - xd[0] - xd[1]) / ((xd[2] - xd[0]) * (x2 - x1))
+    L2_prime = (2*x - xd[0] - xd[1]) / ((xd[2] - xd[0]) * (xd[2] - xd[1]))
     
     # Compute the derivative of the polynomial
     derivative = fd[0] * L0_prime + fd[1] * L1_prime + fd[2] * L2_prime
