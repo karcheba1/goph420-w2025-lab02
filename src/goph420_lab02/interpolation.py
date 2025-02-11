@@ -42,3 +42,4 @@ def interp_lagrange(x, xd, fd):
         return f
 
     return polynomial_value(x, xd, fd)
+
