@@ -41,4 +41,22 @@ def interp_lagrange(x, xd, fd):
             f += fd[i]*l_fraction(x, xd)
         return f
 
-    return polynomial_value(x, xd, fd)
+    return polynomial_value(x, xd, fd) 
+
+def interp_grad(x, xd, fd): 
+    """find the gradient of the interpolating polynomial""" 
+    xd = np.asarray(xd, dtype=float) 
+    n = len(xd) - 1 
+    j = 0 
+    k = n 
+
+    L0_prime = (2*x - x1 - x2) / ((x0 - x1) * (x0 - x2))
+    L1_prime = (2*x - x0 - x2) / ((x1 - x0) * (x1 - x2))
+    L2_prime = (2*x - x0 - x1) / ((x2 - x0) * (x2 - x1))
+    
+    # Compute the derivative of the polynomial
+    derivative = y0 * L0_prime + y1 * L1_prime + y2 * L2_prime
+    
+    
+    
+    pass
