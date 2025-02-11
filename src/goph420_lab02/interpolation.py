@@ -43,19 +43,17 @@ def interp_lagrange(x, xd, fd):
 
     return polynomial_value(x, xd, fd) 
 
-def interp_grad(x, xd, fd): 
+def interp_grad_2ndorder(x, xd, fd): 
     """find the gradient of the interpolating polynomial""" 
     xd = np.asarray(xd, dtype=float) 
-    n = len(xd) - 1 
-    j = 0 
-    k = n 
 
-    L0_prime = (2*x - x1 - x2) / ((x0 - x1) * (x0 - x2))
-    L1_prime = (2*x - x0 - x2) / ((x1 - x0) * (x1 - x2))
-    L2_prime = (2*x - x0 - x1) / ((x2 - x0) * (x2 - x1))
+
+    L0_prime = (2*x - xd[1] - xd[2]) / ((xd[0] - xd[1]) * (xd[0] - xd[2]))
+    L1_prime = (2*x - xd[0] - xd[2]) / ((xd[1] - xd[0]) * (xd[1] - xd[2]))
+    L2_prime = (2*x - xd[0] - xd[1]) / ((xd[2] - xd[0]) * (x2 - x1))
     
     # Compute the derivative of the polynomial
-    derivative = y0 * L0_prime + y1 * L1_prime + y2 * L2_prime
+    derivative = fd[0] * L0_prime + fd[1] * L1_prime + fd[2] * L2_prime
     
     
     
