@@ -11,23 +11,31 @@ from goph420_lab02.interpolation import (
 T = [22.8, 22.8, 22.8, 20.6, 13.9, 11.7, 11.1, 11.1, 11.1]
 z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
-x = 1
-dtdz = interp_grad_2ndorder(x, z, T)
-interp = interp_lagrange(x, z, T)
 
+def points():
+    for i in range(T):
+        n = 0
+        Tpoints = np.linspace(T[n], T[n + 2], 10)
+        Tlist = Tpoints.append()
+        return Tlist
+
+def points2():    
+    for i in range(z):
+        n = 0
+        zpoints = np.linspace(z[n], z[n + 2], 10)
+        zlist = zpoints.append()
+    return zlist
 
 def main():
     #  plotting T(z)
     plt.figure()
     plt.plot(T, z, "o")
-    plt.plot(interp, z, "--r")
     plt.xlabel("z")
     plt.ylabel("T(z)")
     plt.legend()
     plt.show()
 
     plt.figure()
-    plt.plot(dtdz, z, "--g")
     plt.xlabel("z")
     plt.ylabel("T(z)")
     plt.legend()
