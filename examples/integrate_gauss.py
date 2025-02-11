@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 from goph420_lab02.interpolation import (
     interp_grad_2ndorder,
+    interp_lagrange,
 )
 
 
@@ -12,12 +13,14 @@ z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 x = 1
 dtdz = interp_grad_2ndorder(x, z, T)
+interp = interp_lagrange(x, z, T)
 
 
 def main():
     #  plotting T(z)
     plt.figure()
-    plt.plot(T, z, "--g")
+    plt.plot(T, z, "o")
+    plt.plot(interp, z, "--r")
     plt.xlabel("z")
     plt.ylabel("T(z)")
     plt.legend()
