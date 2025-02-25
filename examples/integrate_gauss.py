@@ -13,16 +13,11 @@ z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 
 def points(T):
-    for i in range(T):
-        Tpoints = np.linspace(T[i], T[i + 2], 10)
+    Tlist =  []
+    for T,z in enumerate(T):
+        Tpoints = np.linspace([z][T], z[T + 2], 10)
         Tlist.append(Tpoints)
     return Tlist
-
-def points2(z):
-    for i in range(z):
-        zpoints = np.linspace(z[i], z[i + 2], 10)
-        zlist.append(zpoints)
-    return zlist
 
 def main():
     #  plotting T(z)
@@ -31,6 +26,7 @@ def main():
     plt.xlabel("z")
     plt.ylabel("T(z)")
     plt.legend()
+    plt.ylim(z[-1], z[0])
     plt.show()
 
     plt.figure()
