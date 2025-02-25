@@ -13,24 +13,22 @@ z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 
 def points(T):
-    for i in range(T):
-        Tpoints = np.linspace(T[i], T[i + 2], 10)
+    Tlist =  []
+    for T,z in enumerate(T):
+        Tpoints = np.linspace([z][T], z[T + 2], 10)
         Tlist.append(Tpoints)
     return Tlist
 
-def points2(z):
-    for i in range(z):
-        zpoints = np.linspace(z[i], z[i + 2], 10)
-        zlist.append(zpoints)
-    return zlist
-
 def main():
     #  plotting T(z)
-    plt.figure()
-    plt.plot(T, z, "o")
-    plt.xlabel("z")
+    fig, ax = plt.subplots()
+    ax.plot(T, z, "o")
     plt.ylabel("T(z)")
     plt.legend()
+    plt.ylim(z[-1], z[0])
+    ax.tick_params(top=True, labeltop=True, bottom=False, labelbottom=False)
+    ax.set_title('z')
+
     plt.show()
 
     plt.figure()
@@ -38,6 +36,24 @@ def main():
     plt.ylabel("T(z)")
     plt.legend()
     plt.show()
+
+def integral_gauss():
+    #  integrate T(z) using Gaussian quadrature
+    #  using 2 points
+    n = 2 
+    x, y = np.polynomial.legendre.leggauss(n)
+    nodes = x
+    weights = y 
+
+
+
+
+
+
+
+
+
+
     plt.savefig("figures/Z_VS_T.png") 
 
 if __name__ == "__main__":
