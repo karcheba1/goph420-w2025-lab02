@@ -36,7 +36,7 @@ def main():
     plt.ylabel("T(z)")
     plt.legend()
     plt.show()
-
+    plt.savefig("figures/Z_VS_T.png") 
 def integral_gauss():
     #  integrate T(z) using Gaussian quadrature
     #  using 2 points
@@ -54,7 +54,7 @@ def integral_gauss():
 
 
 
-    plt.savefig("figures/Z_VS_T.png") 
+    
 
 if __name__ == "__main__":
     main()
