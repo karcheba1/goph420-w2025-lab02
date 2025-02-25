@@ -21,12 +21,14 @@ def points(T):
 
 def main():
     #  plotting T(z)
-    plt.figure()
-    plt.plot(T, z, "o")
-    plt.xlabel("z")
+    fig, ax = plt.subplots()
+    ax.plot(T, z, "o")
     plt.ylabel("T(z)")
     plt.legend()
     plt.ylim(z[-1], z[0])
+    ax.tick_params(top=True, labeltop=True, bottom=False, labelbottom=False)
+    ax.set_title('z')
+
     plt.show()
 
     plt.figure()
