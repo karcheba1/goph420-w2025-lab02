@@ -32,7 +32,7 @@ def lots_of_data(T, z):
 
 def main(): 
 
-    Zplot, Tplot, dZplot, dTplot = lots_of_data(T, z)
+    Zplot, Tplot, dTplot = lots_of_data(T, z)
 
     #  plotting T(z)
     fig, ax = plt.subplots()
