@@ -12,12 +12,11 @@ T = [22.8, 22.8, 22.8, 20.6, 13.9, 11.7, 11.1, 11.1, 11.1]
 z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 
-def points(T):
-    Tlist =  []
-    for T,z in enumerate(T):
-        Tpoints = np.linspace([z][T], z[T + 2], 10)
-        Tlist.append(Tpoints)
-    return Tlist
+def nd_ord():
+    zplot = []
+    Tplot = []
+    for k, Tk in enumerate(T[:-1:2]):
+        Tloc = T
 
 def main():
     #  plotting T(z)
@@ -28,7 +27,6 @@ def main():
     plt.ylim(z[-1], z[0])
     ax.tick_params(top=True, labeltop=True, bottom=False, labelbottom=False)
     ax.set_title('z')
-
     plt.show()
 
     plt.figure()
