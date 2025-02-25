@@ -44,6 +44,11 @@ def integral_gauss():
     x, y = np.polynomial.legendre.leggauss(n)
     nodes = x
     weights = y 
+    # scaling the x points from a [-1, 1] interval to the actual interval for the integral.
+    scaled_nodes = 0.5*(nodes + 1)*(Z[-1] - Z[0]) + Z[0]
+    #calculating the integral value using the gauss-legendre quadrature formula.
+    integral_value = np.sum(weights * (interp_grad_2ndorder(scaled_nodes)**2)) * (0.5 * (Z[-1] - Z[0]))
+
 
 
 
