@@ -38,24 +38,7 @@ def main():
     plt.ylabel("T(z)")
     plt.legend()
     plt.show()
-
-def integral_gauss():
-    #  integrate T(z) using Gaussian quadrature
-    #  using 3 points
-    n = 3 
-    x, y = np.polynomial.legendre.leggauss(n)
-    nodes = x
-    weights = y 
-
-
-
-
-
-
-
-
-
-
+    plt.savefig("figures/Z_VS_T.png") 
 
 if __name__ == "__main__":
     main()
