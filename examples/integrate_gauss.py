@@ -39,8 +39,8 @@ def main():
 
 def integral_gauss():
     #  integrate T(z) using Gaussian quadrature
-    #  using 3 points
-    n = 3 
+    #  using 2 points
+    n = 2 
     x, y = np.polynomial.legendre.leggauss(n)
     nodes = x
     weights = y 
