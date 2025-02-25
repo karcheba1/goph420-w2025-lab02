@@ -12,19 +12,26 @@ T = [22.8, 22.8, 22.8, 20.6, 13.9, 11.7, 11.1, 11.1, 11.1]
 z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 
-def nd_ord():
-    zplot = []
-    Tplot = []
+def lots_of_data(T, z):
+    Zplot = []
+    Tplot = [] 
+    dZplot = [] 
+    dTplot = []
     for k, Tk in enumerate(T[:-1:2]):
         Tloc = T[2 * k:2 * k + 3]
-        zloc = z[2 * k:2 * k + 3] 
-        dTloc = interp_grad_2ndorder(zloc, zloc, Tloc) 
-        dzloc = interp_grad_2ndorder(zloc, zloc, zloc) 
-        zplot.append(zloc)
-        Tplot.append(Tloc) 
-    return zplot, Tplot
+        Zloc = z[2 * k:2 * k + 3] 
+        dTloc = interp_grad_2ndorder(Zloc, Zloc, Tloc) 
+        dzloc = interp_grad_2ndorder(Zloc, Zloc, Zloc) 
+        Zplot.append(Zloc)
+        Tplot.append(Tloc)  
+        dZplot.append(dzloc)
+        dTplot.append(dTloc)
+    return Zplot, Tplot, dZplot, dTplot
 
-def main():
+def main(): 
+
+    Zplot, Tplot, dZplot, dTplot = lots_of_data(T, z)
+
     #  plotting T(z)
     fig, ax = plt.subplots()
     ax.plot(T, z, "o")
@@ -35,11 +42,18 @@ def main():
     ax.set_title('z')
     plt.show()
 
-    plt.figure()
-    plt.xlabel("z")
+    fig, ax = plt.subplots() 
+    ax.plot(Tplot, Zplot, "o") 
     plt.ylabel("T(z)")
-    plt.legend()
+    plt.legend() 
+    plt.ylim(z[-1], z[0])
+    ax.tick_params(top=True, labeltop=True, bottom=False, labelbottom=False) 
+    ax.set_title('z')
     plt.show()
+
+    
+
+
 
 def integral_gauss():
     #  integrate T(z) using Gaussian quadrature
