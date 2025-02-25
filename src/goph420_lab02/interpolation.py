@@ -19,10 +19,13 @@ def interp_lagrange(x, xd, fd):
         The interpolated data. Same type and shape as x.
     """
 
+    # test this function
+
     xd = np.asarray(xd, dtype=float)
     n = len(xd) - 1
     j = 0
-    k = n
+    k = n 
+
 
     def l_fraction(x, xd):
         """Calculate Lagrange polynomial"""
@@ -47,6 +50,9 @@ def interp_lagrange(x, xd, fd):
 
 def interp_grad_2ndorder(x, xd, fd): 
     """find the gradient of the interpolating polynomial""" 
+    
+    # test this
+
     xd = np.asarray(xd, dtype=float) 
 
 
