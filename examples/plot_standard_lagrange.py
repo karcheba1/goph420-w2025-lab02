@@ -45,7 +45,7 @@ def main():
     plt.ylabel("L_{kn}")
     plt.legend()
     plt.title("Standard Lagrange Interpolating Polynomials")
-    plt.savefig("examples/standard_lagrange.png")
+    plt.savefig("figures/standard_lagrange.png")
 
 
 if __name__ == "__main__":
