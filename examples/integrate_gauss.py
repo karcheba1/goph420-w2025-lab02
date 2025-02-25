@@ -16,7 +16,13 @@ def nd_ord():
     zplot = []
     Tplot = []
     for k, Tk in enumerate(T[:-1:2]):
-        Tloc = T
+        Tloc = T[2 * k:2 * k + 3]
+        zloc = z[2 * k:2 * k + 3] 
+        dTloc = interp_grad_2ndorder(zloc, zloc, Tloc) 
+        dzloc = interp_grad_2ndorder(zloc, zloc, zloc) 
+        zplot.append(zloc)
+        Tplot.append(Tloc) 
+    return zplot, Tplot
 
 def main():
     #  plotting T(z)
