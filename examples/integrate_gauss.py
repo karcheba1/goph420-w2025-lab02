@@ -14,19 +14,21 @@ z = [0, 2.3, 4.9, 9.1, 13.7, 18.3, 22.9, 26.0, 27.2]
 
 def lots_of_data(T, z):
     Zplot = []
-    Tplot = [] 
-    dZplot = [] 
+    Tplot = []  
     dTplot = []
     for k, Tk in enumerate(T[:-1:2]):
         Tloc = T[2 * k:2 * k + 3]
-        Zloc = z[2 * k:2 * k + 3] 
-        dTloc = interp_grad_2ndorder(Zloc, Zloc, Tloc) 
-        dzloc = interp_grad_2ndorder(Zloc, Zloc, Zloc) 
-        Zplot.append(Zloc)
-        Tplot.append(Tloc)  
-        dZplot.append(dzloc)
-        dTplot.append(dTloc)
-    return Zplot, Tplot, dZplot, dTplot
+        Zloc = z[2 * k:2 * k + 3]  
+        Zp = np.linspace(Zloc[0], Zloc[-1]) 
+        Tp = interp_lagrange(Zp, Zloc, Tloc)
+        dTloc = interp_grad_2ndorder(Zp, Zloc, Tloc) 
+        Zplot.append(Zp)
+        Tplot.append(Tp)  
+        dTplot.append(dTloc) 
+    Zplot = np.array(Zplot).flatten()
+    Tplot = np.array(Tplot).flatten() 
+    dTplot = np.array(dTplot).flatten()
+    return Zplot, Tplot, dTplot
 
 def main(): 
 
@@ -42,6 +44,7 @@ def main():
     ax.set_title('z')
     plt.show()
 
+    #  plotting T(z) with interpolated values
     fig, ax = plt.subplots() 
     ax.plot(Tplot, Zplot, "o") 
     plt.ylabel("T(z)")
@@ -51,6 +54,9 @@ def main():
     ax.set_title('z')
     plt.show()
 
+    #  plotting T'(z) 
+    fig, ax = plt.subplots()
+    ax.plot(dTplot, z, "o")
     
 
 
